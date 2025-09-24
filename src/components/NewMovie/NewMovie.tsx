@@ -17,7 +17,8 @@ export const NewMovie: FC<Props> = ({ onAdd }) => {
   const [imdbUrl, setImdbUrl] = useState('');
   const [imdbId, setImdbId] = useState('');
 
-  const isValid = title && imgUrl && imdbUrl && imdbId;
+  const isValid =
+    title.trim() && imgUrl.trim() && imdbUrl.trim() && imdbId.trim();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -47,7 +48,7 @@ export const NewMovie: FC<Props> = ({ onAdd }) => {
         name="title"
         label="Title"
         value={title}
-        onChange={newValue => setTitle(newValue.trim())}
+        onChange={newValue => setTitle(newValue)}
         required
       />
 
@@ -55,14 +56,14 @@ export const NewMovie: FC<Props> = ({ onAdd }) => {
         name="description"
         label="Description"
         value={description}
-        onChange={newValue => setDescription(newValue.trim())}
+        onChange={newValue => setDescription(newValue)}
       />
 
       <TextField
         name="imgUrl"
         label="Image URL"
         value={imgUrl}
-        onChange={newValue => setImgUrl(newValue.trim())}
+        onChange={newValue => setImgUrl(newValue)}
         required
       />
 
@@ -70,7 +71,7 @@ export const NewMovie: FC<Props> = ({ onAdd }) => {
         name="imdbUrl"
         label="Imdb URL"
         value={imdbUrl}
-        onChange={newValue => setImdbUrl(newValue.trim())}
+        onChange={newValue => setImdbUrl(newValue)}
         required
       />
 
@@ -78,7 +79,7 @@ export const NewMovie: FC<Props> = ({ onAdd }) => {
         name="imdbId"
         label="Imdb ID"
         value={imdbId}
-        onChange={newValue => setImdbId(newValue.trim())}
+        onChange={newValue => setImdbId(newValue)}
         required
       />
 
